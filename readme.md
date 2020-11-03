@@ -25,8 +25,8 @@ more info) as I'm not very well experienced with shell script :P
 
 1. Clone this repo.
 2. Modify `healthcheck.sh` with your own checks.
-3. Add HEALTHCHECK directive in your Dockerfile. For example: 
-    `HEALTHCHECK --interval=5s CMD sh liveness.sh || exit 1`
+3. Add `HEALTHCHECK` directive in your Dockerfile. For example: 
+    `HEALTHCHECK --interval=5s CMD sh healthcheck.sh || exit 1`
 4. Build and run your Docker!
 5. If you're using Kubernetes or Docker Swarm, if the health check
    fails, the contailer will be shut down and roll out a new one.
