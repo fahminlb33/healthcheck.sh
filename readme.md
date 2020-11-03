@@ -2,6 +2,9 @@
 
 Script to check service health (by health means connection to
 outside service). Currently supports TCP checks using netcat.
+When a host is not reachable from inside a container, this
+script will return exit code 1 and causes the container to
+shut down and roll out new container.
 
 ## Available functions
 
@@ -26,7 +29,7 @@ more info) as I'm not very well experienced with shell script :P
     `HEALTHCHECK --interval=5s CMD sh liveness.sh || exit 1`
 4. Build and run your Docker!
 5. If you're using Kubernetes or Docker Swarm, if the health check
-   fails, the contailer will be shut down and spawn a new one.
+   fails, the contailer will be shut down and roll out a new one.
 
 ### Example
 
