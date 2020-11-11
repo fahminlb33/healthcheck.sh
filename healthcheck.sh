@@ -9,13 +9,10 @@
 #
 #   Available functions:
 #     run_check [host] [port] [description]
-#     run_check_mongodb [mongodb URI
+#     run_check [host:port] [description]
+#     run_check_mongodb [mongodb URI]
 #
-#   How to use:
-#     1. Modify the template below. You know what to do :)
-#     2. Add HEALTHCHECK directive in your Dockerfile (use proper interval)
-#      HEALTHCHECK --interval=5s CMD sh liveness.sh || exit 1
-#     3. That's it!
+#   How to use: https://github.com/fahminlb33/healthcheck.sh
 #
 #   Changelog:
 #     03/11/2020 - Initial release
