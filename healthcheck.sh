@@ -41,11 +41,11 @@ run_check()
 # How to: run_check [host:port] [description]
 run_check_host_port()
 {
-  HOST=$(echo $1 | awk '{split($0,a,":"); print a[1]}')
-  PORT=$(echo $1 | awk '{split($0,a,":"); print a[2]}')
+  HOST=$(echo $1 | awk -F':' '{ print $1 }')
+  PORT=$(echo $1 | awk -F':' '{ print $2 }')
   shift
   DESCRIPTION=$@
-
+  
   if [ "${HOST}" ] && [ "${PORT}" ]
   then
     run_check $HOST $PORT $DESCRIPTION
