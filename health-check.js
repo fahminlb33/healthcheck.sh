@@ -106,7 +106,7 @@ const healthcheckHandler = (req, res) => {
       res.status(502).json(buildResponse(false, uri, checkPerformed));
     })
     .then(() => {
-      if (checkPerformed.length === 0) {
+      if (checkPerformed.every(x => x.healthy)) {
         res.status(200).json(buildResponse(true, uri, checkPerformed));
       } else {
         res.status(502).json(buildResponse(false, uri, checkPerformed));
